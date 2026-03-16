@@ -7,6 +7,7 @@ const Event = (props) => {
     const [time, setTime] = useState([])
     const [remaining, setRemaining] = useState([])
 
+    // get event details from api when component mounts
     useEffect(() => {
         (async () => {
             try {
@@ -19,7 +20,7 @@ const Event = (props) => {
         }) ()
     }, [])
 
-    useEffect(() => {
+    useEffect(() => { 
         (async () => {
             try {
                 const result = await dates.formatTime(event.time)

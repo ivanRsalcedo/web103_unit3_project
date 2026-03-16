@@ -5,9 +5,11 @@ import '../css/Locations.css'
 
 const Locations = () => {
 
+    // states for location and venues
     const [locations, setLocations] = useState([])
     const [venueNames, setVenueNames] = useState({venue1: '', venue2: '', venue3: '', venue4: ''})
 
+    // fetch location and venue data from api
     useEffect(() => {
         (async () => {
             try {
@@ -23,9 +25,11 @@ const Locations = () => {
         }) ()
     }, [])
 
+
     const setListeners = () => {
         const polygons = document.querySelectorAll('polygon')
 
+        /// show unhide button for each city location when hovered
         polygons.forEach(element => {
             element.addEventListener('mouseover', (event) => {
                 const buttonElement = document.getElementById(`${event.target.id}button`)
