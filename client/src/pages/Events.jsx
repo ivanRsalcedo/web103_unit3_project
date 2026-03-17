@@ -22,7 +22,7 @@ const Events = () => {
     return (
         <div className='events-page'>
             <header>
-                <h2>All Events</h2>
+                {/* <h2>All Events</h2> */}
             </header>
 
             <main>
