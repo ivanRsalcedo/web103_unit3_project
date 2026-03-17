@@ -40,7 +40,7 @@ Here's a walkthrough of implemented required features:
 
 ![Video Walkthrough](./walkthrough.gif)
 
-(if the GIF doesn't show, try https://imgur.com/AaY28ZY)
+(if the GIF doesn't show, try https://i.imgur.com/alYxpT6.gif)
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with LICECap
