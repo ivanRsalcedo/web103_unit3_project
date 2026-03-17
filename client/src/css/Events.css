@@ -1,0 +1,16 @@
+.events-page {
+    min-height: 100vh;
+}
+
+.events-page header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.events-page main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}

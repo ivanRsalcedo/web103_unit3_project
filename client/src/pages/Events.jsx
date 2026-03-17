@@ -1,5 +1,46 @@
+import React, { useState, useEffect } from 'react'
+import Event from '../components/Event'
+import EventsAPI from '../services/EventsAPI'
+import '../css/Events.css'
+
 const Events = () => {
-    return <h2>All Events</h2>
+    const [events, setEvents] = useState([])
+
+    useEffect(() => {
+        const fetchEvents = async () => {
+            try {
+                const data = await EventsAPI.getAllEvents()
+                setEvents(data)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
+        fetchEvents()
+    }, [])
+
+    return (
+        <div className='events-page'>
+            <header>
+                <h2>All Events</h2>
+            </header>
+
+            <main>
+                {
+                    events && events.length > 0 ? events.map((event) => (
+                        <Event
+                            key={event.id}
+                            id={event.id}
+                            title={event.title}
+                            date={event.date}
+                            time={event.time}
+                            image={event.image}
+                        />
+                    )) : <h2>No events found.</h2>
+                }
+            </main>
+        </div>
+    )
 }
 
 export default Events
