@@ -38,7 +38,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-![Video Walkthrough](https://i.imgur.com/AaY28ZY.gif)
+![Video Walkthrough](./walkthrough.gif)
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with LICECap
