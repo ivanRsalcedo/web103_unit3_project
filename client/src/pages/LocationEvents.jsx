@@ -15,14 +15,21 @@ const LocationEvents = ({ index }) => {
                 const locationsData = await LocationsAPI.getAllLocations()
                 const selectedLocation = locationsData[index - 1]
 
+                console.log('locationsData:', locationsData)
+                console.log('selectedLocation:', selectedLocation)
+
                 if (!selectedLocation) return
 
                 setLocation(selectedLocation)
 
                 const eventsData = await EventsAPI.getAllEvents()
+                console.log('eventsData:', eventsData)
+
                 const filteredEvents = eventsData.filter(
-                    event => event.location_id === selectedLocation.id
+                    event => Number(event.location_id) === Number(selectedLocation.id)
                 )
+
+                console.log('filteredEvents:', filteredEvents)
 
                 setEvents(filteredEvents)
             } catch (error) {

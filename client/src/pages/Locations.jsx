@@ -27,7 +27,7 @@ const Locations = () => {
                 setListeners()
             }
             catch (error) {
-                throw error
+                console.error(error)
             }
         }) ()
     }, [])
