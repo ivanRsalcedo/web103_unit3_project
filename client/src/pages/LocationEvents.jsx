@@ -6,18 +6,22 @@ import EventsAPI from '../services/EventsAPI'
 import LocationsAPI from '../services/LocationsAPI'
 
 const LocationEvents = ({ index }) => {
-    const [location, setLocation] = useState([])
+    const [location, setLocation] = useState({})
     const [events, setEvents] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const locationsData = await LocationsAPI.getAllLocations()
-                setLocation(locationsData[index])
+                const selectedLocation = locationsData[index - 1]
+
+                if (!selectedLocation) return
+
+                setLocation(selectedLocation)
 
                 const eventsData = await EventsAPI.getAllEvents()
                 const filteredEvents = eventsData.filter(
-                    event => event.location_id === locationsData[index].id
+                    event => event.location_id === selectedLocation.id
                 )
 
                 setEvents(filteredEvents)
