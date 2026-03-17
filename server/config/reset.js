@@ -1,12 +1,7 @@
 import { pool } from "./database.js"
 
-// SERIAL = auto-increment ID
-// TEXT = string
-// INTEGER = numbers
-// DATE = date values
-// TIMESTAMP = date + time
-
-// PRIMARY KEY = this column uniquely id's each row
+const dropEvents = `DROP TABLE IF EXISTS events`
+const dropLocations = `DROP TABLE IF EXISTS locations`
 
 const locations = `CREATE TABLE IF NOT EXISTS locations (
     id SERIAL PRIMARY KEY,
@@ -29,11 +24,13 @@ const events = `CREATE TABLE IF NOT EXISTS events (
     description TEXT
 )`
 
-const resetDatabase = async function() {
-    try  {
+const resetDatabase = async function () {
+    try {
+        await pool.query(dropEvents)
+        await pool.query(dropLocations)
         await pool.query(locations)
         await pool.query(events)
-        console.log("Database tables created")
+        console.log("Database tables reset")
     } catch (error) {
         console.error(error)
     } finally {
